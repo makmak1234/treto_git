@@ -15,14 +15,14 @@ if(isset($_GET["filetxt"])){
 	$foptmp = fopen("$tmpfname", "ab");//открыть для записи в конец
 	$src = imagecreatefrompng("./elem/55728fa6267b8_wather_150.png");//водяной знак
 	foreach($handle as $k=>$v){
-		//if(@fopen($v, "r")){ //проверить sv на существование файла
+		//if(@fopen($v, "r")){ //проверить sv на существование файла   // если убрать будут картинки с удаленного
 			$rest = strrchr($v, "/");
 			$rest = substr($rest, 1);
 			$rest = rawurldecode("$rest");//убрать%
 			$pos = strpos($nameall, $rest);
 			if($pos === false){
 				$fnamew = "./imagesw/" . $rest;
-					$v = "./images/" . $rest;
+					$v = "./images/" . $rest;   // если убрать будут картинки с удаленного
 				$dest = imagecreatefromjpeg("$v");
 				// Копирование и наложение
 				$wsrc = imagesx($src);
@@ -39,7 +39,7 @@ if(isset($_GET["filetxt"])){
 	END;*/
 				$i++;
 			}
-		//}
+		//}   // если убрать будут картинки с удаленного
 	}
 	imagedestroy($src);
 	fclose($foptmp);
